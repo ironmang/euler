@@ -1,8 +1,3 @@
-target = 600851475143
-
-largestPrime = 0
-
-primes = [2]
 
 def findThePrime(max):
     i = 2
@@ -16,10 +11,19 @@ def findThePrime(max):
             primes.append(i)
             if target % i == 0:
                 largestPrime = i
-                print "Largest Prime: %d" % i
                 max = max // i + 1
                 print "New Max: %d" % max
         
         i+=1
         
-createListOfPrimes(target)    
+    return largestPrime
+
+target = 600851475143
+
+largestPrime = 0
+
+primes = [2]
+
+        
+print "Largest Prime factor: %d" % findThePrime(target)    
+

@@ -1,7 +1,7 @@
 def get_natural_sum():
     sumof_multiples = 0
     
-    for i in range(0, 1000):
+    for i in range(0, 999999999):
         if i % 15 == 0:
             sumof_multiples += i
         elif i% 5 == 0:
