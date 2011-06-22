@@ -1,4 +1,3 @@
-        
 def findThePrime(n):
     i = 2
     count = 2
@@ -9,9 +8,14 @@ def findThePrime(n):
         for prime in primes:
             if i % prime == 0:
                 isPrime = False
-        
+                break
+
+            if prime > i ** .5 :
+                break
+            
+
         if isPrime:
-            print "prime # " + str(count) + "is : " + str(i)
+            print "prime # " + str(count) + " is : " + str(i)
             primes.append(i)
             count += 1
             lastPrime = i
