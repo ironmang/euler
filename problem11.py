@@ -20,34 +20,40 @@ list = [['08','02','22','97','38','15','00','40','00','75','04','05','07','78','
 ['01','70','54','71','83','51','54','69','16','92','33','48','61','43','52','01','89','19','67','48']]
 
 max = 0
-maxX= len(list[0])-1
-maxY=len(list)-1
+maxX= len(list[0])
+maxY=len(list)
 direction = ""
+
+
+print str(list[0][1])
 
 for x in range(0,maxX):
     for y in range(0,maxY):
-        if x <= maxX - 3:
-           right = int(list[x][y]) * int(list[x+1][y]) * int(list[x+2][y]) * int(list[x+3][y])
+        if y <= maxY - 4:
+           right = int(list[x][y]) * int(list[x][y+1]) * int(list[x][y+2]) * int(list[x][y+3])
            if max < right:
                max = right
                print "right: " + str(right) + " x: " + str(x) + " , y: " + str(y)
                 
-        if y <= maxY - 3:
-            down = int(list[x][y]) * int(list[x][y+1]) * int(list[x][y+2]) * int(list[x][y+3])
+        if x <= maxX - 4:
+            down = int(list[x][y]) * int(list[x+1][y]) * int(list[x+2][y]) * int(list[x+3][y])
             if max < down:
                 max = down
                 print "down: " + str(down) + " x:" + str(x) + " , y: " + str(y)
 
-        if x <= maxX-3 and y <= maxY-3:
+        if x <= maxX-4 and y <= maxY-4:
             diagonal = int(list[x][y]) * int(list[x+1][y+1]) * int(list[x+2][y+2]) * int(list[x+3][y+3])
             if max < diagonal:
                 max = diagonal
                 print "diagonal: " + str(diagonal) + " x:" + str(x) + " , y: " + str(y)
 
-        if x > 3 and y > 3:
-            diagonal = int(list[x][y]) * int(list[x-1][y-1]) * int(list[x-2][y-2]) * int(list[x-3][y-3])
-            if max < diagonal:
-                max = diagonal
-                print "diagonal: " + str(diagonal) + " x:" + str(x) + " , y: " + str(y)
+        if x > 4 and y <= maxY- 4:
+            diagonal2 = int(list[x][y]) * int(list[x-1][y+1]) * int(list[x-2][y+2]) * int(list[x-3][y+3])
+            if max < diagonal2:
+                max = diagonal2
+                print "diagonal2: " + str(diagonal2) + " x:" + str(x) + " , y: " + str(y)
+
+
+
 
 print "max: %d" % max 
